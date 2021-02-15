@@ -79,7 +79,7 @@ def get_missing_data():
         print(f"GET {url}")
         with urllib.request.urlopen(url) as u:
             json_data = simplejson.loads(u.read().decode(), use_decimal=True)
-            assert(json_data["url"] == "/de/v1/marketdata")
+            assert(json_data["url"] == "/v2.0/marketdata")
             assert(json_data["object"] == "list")
             json_data = json_data["data"]
             for line in json_data:
