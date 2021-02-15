@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import urllib.request
-import simplejson
+import json as simplejson
 import datetime
 import decimal
 import time
@@ -18,7 +18,7 @@ import operator
 MAX_API_CALLS = 50
 # Also, we sleep between API calls for some time
 SLEEP_TIME = 1
-# aWATTar API gives data from this day on
+# Corrently API gives data from this day on
 DATA_START_DATE = datetime.date(2013,12,22)
 cmap=colors.LinearSegmentedColormap.from_list('gr',["g", "y", "r"], N=256)
 YMIN = -70
@@ -75,7 +75,7 @@ def get_missing_data():
     api_calls = 0
     while last_end_ts < now_ts:
         api_calls += 1
-        url = f"https://api.awattar.de/v1/marketdata?start={last_end_ts}"
+        url = f"https://api.corrently.io/v2.0/marketdata?start={last_end_ts}"
         print(f"GET {url}")
         with urllib.request.urlopen(url) as u:
             json_data = simplejson.loads(u.read().decode(), use_decimal=True)
@@ -301,19 +301,19 @@ def calculate():
     
 
 def print_usage():
-    print("awattar-statistics.py")    
+    print("corrently-statistics.py")    
     print("---------------------")
     print("")
     print("This is a simple script which Klaus Eisentraut wrote in order to get")
-    print("a rough idea about the EPEX Day-Ahead price and how much the aWATTar")
+    print("a rough idea about the green electricity price and how much the Corrently")
     print("HOURLY dynamic power contract will cost me in reality.")
     print("")
     print("Usage:")
     print("")
-    print("  ./awattar-statistics.py update")
+    print("  ./corrently-statistics.py update")
     print("     download missing historical data")
     print("")
-    print("  ./awattar-statistics.py calculate")
+    print("  ./corrently-statistics.py calculate")
     print("     create interesting statistics and write them to the output folder")
     print("")
 
