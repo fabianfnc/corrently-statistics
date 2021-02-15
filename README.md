@@ -1,15 +1,16 @@
-# Statistics for aWATTar hourly tariff
+# Statistics for Corrently hourly tariff
+
+*based on https://github.com/keisentraut/awattar-statistics*
 
 There is a new, very interesting offer in Germany for a dynamic power contract.
-The company is called [aWATTar](https://www.awattar.de) and offers an HOURLY tariff which is based on the EPEX Spot Day-Ahead price.
-I don't have a smart meter yet and only know my yearly power consumption.
-So I wasn't able to use the [Lohnt sich aWATTar?](https://github.com/foscoj/lohnt-sich-awattar) project.
+The company is called [STROMDAO](https://www.stromdao.de/) with their product [Corrently](https://www.corrently.de/home.html).
+They offer an [HOURLY tariff](https://www.corrently.de/gruenstromerlebnis/gruenstromindex.html) based on the available green electricity.
 
-I wanted to be able to get some rough idea about the expected costs of aWATTar HOURLY and therefore I created this visualization script.
+This Project is about getting a rough idea about the expected costs of the Corrently HOURLY tariff without having a smart meter.
 
 # Data Source
 
-The source of this data is the official (German) [aWATTar API](https://www.awattar.de/services/api).
+The source of this data is the official [Corrently API](https://corrently.io/).
 **Please note that this price is without VAT.**
 So you will need to add 19% in order to get the actual prices for customers.
 
@@ -18,10 +19,10 @@ For convenience, this repository comes with the pre-downloaded data from ```2013
 
 # Usage
 
-In order to get the latest daily data, please run ```./awattar-statistics.py update``` first.
+In order to get the latest daily data, please run ```./corrently-statistics.py update``` first.
 This will download and append the missing data to the file ```historical-data.txt```.
 
-Then run ```./awattar-statistics.py calculate``` which will create all the files and visualizations.
+Then run ```./corrently-statistics.py calculate``` which will create all the files and visualizations.
 This will take a few minutes of generation.
 
 # Output
