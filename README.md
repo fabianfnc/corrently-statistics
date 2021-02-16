@@ -1,3 +1,5 @@
+**STILL WIP**
+
 # Statistics for Corrently hourly tariff
 
 *based on https://github.com/keisentraut/awattar-statistics*
